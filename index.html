@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEPokémon</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <img src="cepokemon.png" class="logo" alt="CEPokémon">
+
+  <main class="app">
+
+    <section class="card main-card">
+      <img src="pikapika.png">
+
+      <h2>Encontre seu Pokémon</h2>
+
+      <input id="inputCep" maxlength="8" placeholder="Digite seu CEP">
+
+      <div id="resultado"></div>
+      <div id="pokemonResult"></div>
+
+      <button id="btnBuscar" type="button">Buscar</button>
+    </section>
+
+    <div class="right-column">
+
+      <section class="card">
+        <h3>Pokémon encontrados</h3>
+        <div id="history" class="list"></div>
+      </section>
+
+      <section class="card">
+        <h3 class="shiny-title">Pokémon Shiny ✨</h3>
+        <div id="shinies" class="list"></div>
+      </section>
+
+    </div>
+
+  </main>
+
+<p class="footer-text">
+  Procure nas diferentes cidades pela chance de encontrar um pokémon shiny!
+</p>
+
+<footer class="footer">
+  Projeto da aula de webdesign - Criado por Raquel Boff em 2026.
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
