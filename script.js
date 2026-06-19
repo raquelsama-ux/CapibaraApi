@@ -25,15 +25,23 @@ function getPokemonId(cep) {
 // -------------------------
 // FUNÇÃO: contar primos no CEP
 // -------------------------
-function countPrimes(cep) {
+function isShiny(cep) {
   const primes = new Set(["2", "3", "5", "7"]);
-  let count = 0;
-
+  
+  let primeCount = 0;
   for (let c of cep) {
-    if (primes.has(c)) count++;
+    if (primes.has(c)) primeCount++;
   }
 
-  return count;
+  // base extremamente rara (1%)
+  let chance = Math.random() < 0.01;
+
+  // bônus leve: cada primo aumenta chance um pouco
+  if (primeCount >= 3) {
+    chance = chance || Math.random() < 0.08;
+  }
+
+  return chance;
 }
 
 // -------------------------
@@ -59,7 +67,7 @@ async function buscar() {
   }
 
   const pokemonId = getPokemonId(cep);
-  const shiny = countPrimes(cep) >= 3;
+const shiny = isShiny(cep);
 
   const pokeRes = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
   const poke = await pokeRes.json();
